@@ -1,0 +1,1 @@
+console.log("[clog > index.js] This is a reusable npm utility to log messages.");
