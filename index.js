@@ -1,1 +1,37 @@
-console.log("[clog > index.js] This is a reusable npm utility to log messages.");
+#!/usr/bin/env node
+
+// Ensure color output is available on Windows and when piped through npm.
+process.env.FORCE_COLOR = process.env.FORCE_COLOR || '1';
+
+const pkg = require('#root/package.json');
+const { run } = require('#root/src/clog.js');
+const logger = require('#features/logger/logger.js');
+
+async function cli() {
+  logger.info(`[clog > index.js] Starting clog ${pkg.version}... This is a reusable npm utility to log messages.`);
+
+  try {
+    const exitCode = await run({ pkg });
+    process.exit(exitCode);
+  } catch (error) {
+    logger.error('[clog > index.js] Fatal error:', error);
+    process.exit(1);
+  }
+}
+
+const clog = {
+  run,
+  log: logger.log,
+  info: logger.info,
+  warn: logger.warn,
+  error: logger.error,
+  debug: logger.debug,
+  setDebugEnabled: logger.setDebugEnabled,
+  logger,
+};
+
+module.exports = clog;
+
+if (require.main === module) {
+  cli();
+}

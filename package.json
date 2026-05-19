@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "imports": {
     "#root/*": "./*",
-    "#shared/*": "./src/shared/*.js",
-    "#features/*": "./src/features/*.js",
-    "#menu/*": "./src/menu/*.js",
-    "#args/*": "./src/args/*.js"
+    "#shared/*": "./src/shared/*",
+    "#features/*": "./src/features/*",
+    "#menu/*": "./src/menu/*",
+    "#args/*": "./src/args/*"
   },
   "main": "index.js",
   "bin": {

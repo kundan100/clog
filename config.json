@@ -1,0 +1,13 @@
+{
+    "data": {
+        "filePath": "/config.json",
+        "id": "appConfig",
+        "data": {
+            "DEBUG_LOG_ENABLED__note": "Set to true to enable debug logs (e.g. from clog.debug) in development environment. Does not affect production environment.",
+            "DEBUG_LOG_ENABLED": true,
+            "OPEN_CONFIG_FILE_WHILE_CHECKING_CONFIG__note": "Make it true to open config file when used arg --config",
+            "OPEN_CONFIG_FILE_WHILE_CHECKING_CONFIG": true
+        }
+    },
+    "noteAndExampleJson": {}
+}
