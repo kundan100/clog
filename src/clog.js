@@ -5,7 +5,7 @@ const { buildLogPipeline, executeLogPipeline } = require('#features/logPipeline/
 async function run({ pkg } = {}) {
   const appConfig = loadAppConfig();
   logger.configure(appConfig);
-  logger.debug('[src/clog.js] Starting orchestration');
+  logger.debug('Starting orchestration');
 
   const context = {
     pkg,
@@ -14,12 +14,12 @@ async function run({ pkg } = {}) {
     startedAt: new Date().toISOString(),
   };
 
-  logger.info('[src/clog.js] Application context initialized');
+  logger.debug('Application context initialized');
 
   const pipeline = buildLogPipeline(context);
   await executeLogPipeline({ ...context, pipeline });
 
-  logger.info('[src/clog.js] Orchestration completed successfully');
+  logger.debug('Orchestration completed successfully');
   return 0;
 }
 

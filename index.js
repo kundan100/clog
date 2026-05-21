@@ -9,7 +9,7 @@ const logger = require('#features/logger/logger.js');
 const { initGlobals } = require('#shared/globals.js');
 
 async function cli() {
-  logger.info(`[clog > index.js] Starting clog ${pkg.version}... This is a reusable npm utility to log messages.`);
+  logger.info(`Starting clog ${pkg.version}... This is a reusable npm utility to log messages.`);
   // init globals
   initGlobals();
 
@@ -17,7 +17,7 @@ async function cli() {
     const exitCode = await run({ pkg });
     process.exit(exitCode);
   } catch (error) {
-    logger.error('[clog > index.js] Fatal error:', error);
+    logger.error('Fatal error:', error);
     process.exit(1);
   }
 }
