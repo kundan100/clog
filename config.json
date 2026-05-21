@@ -3,11 +3,20 @@
         "filePath": "/config.json",
         "id": "appConfig",
         "data": {
-            "DEBUG_LOG_ENABLED__note": "Set to true to enable debug logs (e.g. from clog.debug) in development environment. Does not affect production environment.",
-            "DEBUG_LOG_ENABLED": true,
-            "OPEN_CONFIG_FILE_WHILE_CHECKING_CONFIG__note": "Make it true to open config file when used arg --config",
-            "OPEN_CONFIG_FILE_WHILE_CHECKING_CONFIG": true
+            "OPEN_CONFIG_FILE_WHILE_CHECKING_CONFIG": true,
+            "minLevel": "log",
+            "usePrefix": true,
+            "useColors": true
         }
     },
-    "noteAndExampleJson": {}
+    "noteAndExampleJson": {
+        "filePath": "path of this file itself. example (/config.json)",
+        "id": "identifier of this file itself. example (appConfig)",
+        "data": {
+            "OPEN_CONFIG_FILE_WHILE_CHECKING_CONFIG": "Make it true to open config file when used arg --config",
+            "minLevel": "Messages with priority < minLevel are suppressed. levelPriority = { error: 50, warn: 40, info: 30, log: 20, debug: 10 }",
+            "usePrefix": "Enable [fileName > functionName] prefix before every log message",
+            "useColors": "Set to false to disable ANSI color codes in all output"
+        }
+    }
 }
