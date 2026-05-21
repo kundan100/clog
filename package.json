@@ -1,0 +1,50 @@
+{
+  "name": "@kundan100/clog",
+  "description": "reusable npm utility to log messages",
+  "version": "1.0.0",
+  "imports": {
+    "#root/*": "./*",
+    "#shared/*": "./src/shared/*",
+    "#features/*": "./src/features/*",
+    "#menu/*": "./src/menu/*",
+    "#args/*": "./src/args/*"
+  },
+  "main": "index.js",
+  "bin": {
+    "clog": "index.js"
+  },
+  "files": [
+    "src",
+    "config.json",
+    "assets"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "start": "dotenv -e .env -- node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish:env": "dotenv -e .env -- npm publish --registry=https://registry.npmjs.org/",
+    "publish:env-1-old-and-not-working": "dotenv -e .env -- npm publish --//registry.npmjs.org/:_authToken=$NPM_TOKEN",
+    "postinstall": "clog --version"
+  },
+  "dependencies": {
+    "open": "^11.0.0"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^11.0.0"
+  },
+  "engines": {
+    "node": ">=20.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kundan100/clog.git"
+  },
+  "author": "kundan100",
+  "bugs": {
+    "url": "https://github.com/kundan100/clog/issues"
+  },
+  "homepage": "https://github.com/kundan100/clog#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}
