@@ -4,7 +4,7 @@ const { buildLogPipeline, executeLogPipeline } = require('#features/logPipeline/
 
 async function run({ pkg } = {}) {
   const appConfig = loadAppConfig();
-  logger.setDebugEnabled(Boolean(appConfig.DEBUG_LOG_ENABLED));
+  logger.configure(appConfig);
   logger.debug('[src/clog.js] Starting orchestration');
 
   const context = {
