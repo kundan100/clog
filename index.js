@@ -6,15 +6,18 @@ process.env.FORCE_COLOR = process.env.FORCE_COLOR || '1';
 const pkg = require('#root/package.json');
 const { run } = require('#root/src/clog.js');
 const logger = require('#features/logger/logger.js');
+const { initGlobals } = require('#shared/globals.js');
 
 async function cli() {
-  logger.info(`[clog > index.js] Starting clog ${pkg.version}... This is a reusable npm utility to log messages.`);
+  logger.info(`Starting clog ${pkg.version}... This is a reusable npm utility to log messages.`);
+  // init globals
+  initGlobals();
 
   try {
     const exitCode = await run({ pkg });
     process.exit(exitCode);
   } catch (error) {
-    logger.error('[clog > index.js] Fatal error:', error);
+    logger.error('Fatal error:', error);
     process.exit(1);
   }
 }
@@ -26,8 +29,9 @@ const clog = {
   warn: logger.warn,
   error: logger.error,
   debug: logger.debug,
-  setDebugEnabled: logger.setDebugEnabled,
-  logger,
+  configure: logger.configure,
+  getCallerInfo: logger.getCallerInfo,
+  logWithLocation: logger.logWithLocation,
 };
 
 module.exports = clog;

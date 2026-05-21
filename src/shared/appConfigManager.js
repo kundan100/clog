@@ -4,8 +4,10 @@ const path = require('path');
 const CONFIG_PATH = path.join(__dirname, '..', '..', 'config.json');
 
 const DEFAULT_CONFIG = {
-  DEBUG_LOG_ENABLED: false,
   OPEN_CONFIG_FILE_WHILE_CHECKING_CONFIG: true,
+  usePrefix: true,
+  minLevel: 'log',
+  useColors: true,
 };
 
 function loadAppConfig() {
