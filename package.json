@@ -1,7 +1,7 @@
 {
   "name": "@kundan100/clog",
-  "description": "reusable npm utility to log messages",
-  "version": "1.0.0",
+  "description": "npm utility to log messages to console",
+  "version": "1.0.1",
   "imports": {
     "#root/*": "./*",
     "#shared/*": "./src/shared/*",
@@ -21,10 +21,10 @@
   "license": "MIT",
   "scripts": {
     "start": "dotenv -e .env -- node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node test/smoke.js",
     "publish:env": "dotenv -e .env -- npm publish --registry=https://registry.npmjs.org/",
     "publish:env-1-old-and-not-working": "dotenv -e .env -- npm publish --//registry.npmjs.org/:_authToken=$NPM_TOKEN",
-    "postinstall": "clog --version"
+    "postinstall": "node ./scripts/postinstall.js"
   },
   "dependencies": {
     "open": "^11.0.0"
